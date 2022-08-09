@@ -597,6 +597,8 @@ Todos os produtos que foram adicionados ao carrinho devem aparecer na tela do Ca
   * Adicione o atributo `data-testid="product-add-to-cart"` no elemento que executa a ação de adicionar o produto ao carrinho de compras.
 </details>
 
+▶ Ao adicionar o produto no carrinho, salve ele também no local storage.
+
 <details><summary> Na tela do Carrinho de Compras, renderize todos os produtos que foram adicionados ao carrinho:</summary>
   
   * Os produtos na tela do Carrinho de Compras devem possuir o nome, o preço e a quantidade;
@@ -629,6 +631,9 @@ A partir da tela de detalhes de um produto, deve ser possível adicioná-lo ao c
   * Adicione o atributo `data-testid="shopping-cart-product-name"` no elemento que possui o nome do produto na tela do carrinho de compras. Você deve adicionar esse atributo para todos os produtos na tela do carrinho;
   * Adicione o atributo `data-testid="shopping-cart-product-quantity"` no elemento que possui a quantidade do produto na tela do carrinho de compras. Você deve adicionar esse atributo para todos os produtos na tela do carrinho.
 </details><br />
+
+▶ Ao adicionar o produto no carrinho, salve ele também no local storage.
+
 <details>
   <summary><strong>O que será verificado</strong></summary>
 
@@ -641,6 +646,8 @@ A partir da tela de detalhes de um produto, deve ser possível adicioná-lo ao c
 ## 10. Visualize a lista de produtos adicionados ao carrinho em sua página e permita a manipulação da sua quantidade
 
 **PRIORIDADE 3**
+
+Ao entrar na página, todos os produtos salvos no local storage devem ser renderizados.
 
 Na tela do Carrinho de Compras, deve ser possível aumentar e/ou diminuir a quantidade do produto. Também deve ser possível excluir um produto do carrinho.
 
@@ -655,13 +662,14 @@ Na tela do Carrinho de Compras, deve ser possível aumentar e/ou diminuir a quan
   * A quantidade mínima de um produto no carrinho deve ser `1`;
   * Adicione o atributo `data-testid="product-increase-quantity"` no elemento que aumenta a quantidade de um produto. Adicione esse atributo para todos os produtos;
   * Adicione o atributo `data-testid="product-decrease-quantity"` no elemento que diminui a quantidade de um produto. Adicione esse atributo para todos os produtos;
-  * Você pode criar um elemento para remover um item do carrinho, mas isso não será avaliado nesse momento.
+  * Você deve criar um elemento para remover um item do carrinho. Esse elemento deve ter o `data-testid="remove-product"`.
 </details><br />
 
 <details>
   <summary><strong>O que será verificado</strong></summary>
-
-  - Adiciona produtos ao carrinho e manipula suas quantidades.
+  - Que os itens salvos anteriormente no local storage são recuperados e renderizados no carrinho;
+  - Adiciona produtos ao carrinho e manipula suas quantidades;
+  - É possível remover um item do carrinho de compras. Essa remoção deve refletir o local storage.
 </details>
 
 ---
@@ -670,9 +678,9 @@ Na tela do Carrinho de Compras, deve ser possível aumentar e/ou diminuir a quan
 
 **PRIORIDADE 3** 
 
-Na tela de detalhes de um produto, deve existir um formulário para adicionar avaliações sobre ele. Este formulário deve conter um campo para o e-mail da pessoa avaliadora, uma nota entre 1 e 5 e um campo para comentários sobre o produto. Além disso, os campos `e-mail` e `nota` devem ser obrigatórios e o e-mail deve ser válido (exemplo: `teste@trybe.com`). 
+Na tela de detalhes de um produto, deve existir um formulário para adicionar avaliações sobre ele. Este formulário deve conter um campo para o e-mail da pessoa avaliadora, uma nota entre 1 e 5 e um campo para comentários sobre o produto. Além disso, os campos `e-mail` e `nota` devem ser obrigatórios e o e-mail deve ser válido (exemplo: `teste@trybe.com`).
 
-A lista de avaliações já realizadas deve persistir na tela de detalhes do produto caso a pessoa usuária saia e retorne posteriormente.
+A lista de avaliações já realizadas devem ser renderizadas na tela de detalhes do produto caso a pessoa usuária recarregue a página.
 
 <details><summary><b> Exemplo da tela de detalhes contendo o formulário para adicionar avaliações:</b></summary>
 
@@ -694,7 +702,11 @@ A lista de avaliações já realizadas deve persistir na tela de detalhes do pro
 <details><summary> Renderize as avaliações criadas a partir do formulário:</summary>
 
   * Ao clicar no botão com o atributo `data-testid="submit-review-btn"`, as informações inseridas no formulário deverão ser renderizadas na tela de detalhes do produto, abaixo do formulário, e os campos de texto do formulário devem ser limpos;
-  * As avaliações devem persistir na tela de detalhes do produto. Ou seja, se a pessoa usuária sair da tela e acessar novamente, as avaliações ainda devem estar sendo renderizadas na página.
+  * As avaliações devem ser salvas no local storage. **A chave do local storage deve ser o id do produto**;
+  * O `e-mail` da avaliação deve conter o `data-testid="review-card-email"`;
+  * A `nota` da avaliação deve conter o `data-testid="review-card-rating"`;
+  * O `comentario` da avaliação deve conter o `data-testid="review-card-evaluation"`.
+  
 </details><br />
 <details>
   <summary><strong>O que será verificado</strong></summary>
